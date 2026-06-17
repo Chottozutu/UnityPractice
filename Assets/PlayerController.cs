@@ -3,11 +3,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float attackRange = 2f;
 
     void Update()
     {
         Move();
         LookAtMouse();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
     }
 
     void Move()
@@ -39,6 +45,23 @@ public class PlayerController : MonoBehaviour
             if (direction.sqrMagnitude > 0.001f)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
+            }
+        }
+    }
+
+    void Attack()
+    {
+        Collider[] hits =
+        Physics.OverlapSphere(
+            transform.position,
+            attackRange
+        );
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Enemy"))
+            {
+                Debug.Log("Enemy Hit!");
             }
         }
     }
