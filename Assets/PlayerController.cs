@@ -61,7 +61,12 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.CompareTag("Enemy"))
             {
-                Debug.Log("Enemy Hit!");
+                EnemyHealth enemyHealth = hit.GetComponent<EnemyHealth>();
+
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(1);
+                }
             }
         }
     }
