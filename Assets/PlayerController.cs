@@ -52,10 +52,10 @@ public class PlayerController : MonoBehaviour
     void Attack()
     {
         Collider[] hits =
-        Physics.OverlapSphere(
-            transform.position,
-            attackRange
-        );
+            Physics.OverlapSphere(
+                transform.position,
+                attackRange
+            );
 
         foreach (Collider hit in hits)
         {
@@ -64,5 +64,14 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Enemy Hit!");
             }
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(
+            transform.position,
+            attackRange
+        );
     }
 }
