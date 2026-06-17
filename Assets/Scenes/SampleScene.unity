@@ -431,6 +431,7 @@ MonoBehaviour:
   - {fileID: 1076252338}
   - {fileID: 1333719936}
   - {fileID: 955918821}
+  waveManager: {fileID: 1276692342}
 --- !u!4 &430161090
 Transform:
   m_ObjectHideFlags: 0
@@ -923,6 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 430161088}
   spawnPoints: []
+  waveManager: {fileID: 0}
 --- !u!4 &955918821
 Transform:
   m_ObjectHideFlags: 0
@@ -969,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 430161088}
   spawnPoints: []
+  waveManager: {fileID: 0}
 --- !u!4 &1076252338
 Transform:
   m_ObjectHideFlags: 0
@@ -1063,6 +1066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 430161088}
   spawnPoints: []
+  waveManager: {fileID: 0}
 --- !u!4 &1333719936
 Transform:
   m_ObjectHideFlags: 0
