@@ -3,8 +3,10 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHP = 3;
-
     private int currentHP;
+
+    // ★ WaveManagerはPrefabに入れない前提でもOK
+    public System.Action onDeath;
 
     void Start()
     {
@@ -15,11 +17,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHP -= damage;
 
-        Debug.Log(
-            gameObject.name +
-            " HP : " +
-            currentHP
-        );
+        Debug.Log(gameObject.name + " HP: " + currentHP);
 
         if (currentHP <= 0)
         {
@@ -29,7 +27,10 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " defeated");
+        Debug.Log("Enemy Died");
+
+        // ★ WaveManagerではなくイベント通知
+        onDeath?.Invoke();
 
         Destroy(gameObject);
     }

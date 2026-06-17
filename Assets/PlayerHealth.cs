@@ -4,13 +4,19 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHP = 10;
     public float invincibleTime = 1f;
+    public int CurrentHP => currentHP;
 
     private bool isInvincible = false;
     private int currentHP;
+    private UIManager uiManager;
 
     void Start()
     {
         currentHP = maxHP;
+
+        uiManager = FindFirstObjectByType<UIManager>();
+
+        uiManager.UpdateHP(currentHP);
     }
 
     public void TakeDamage(int damage)
@@ -19,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
             return;
 
         currentHP -= damage;
+        uiManager.UpdateHP(currentHP);
 
         Debug.Log("Player HP : " + currentHP);
 
