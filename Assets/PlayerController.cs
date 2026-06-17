@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Debug.Log("Hello Unity!");
-        
-    }
+    public float moveSpeed = 5f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("Update");
+
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+
+        Vector3 move = new Vector3(x, 0, z);
+
+        transform.position += move.normalized * moveSpeed * Time.deltaTime;
     }
 }
